@@ -1,0 +1,14 @@
+/* your styles go here */
+.nav-link{
+    transition: all 0.3s ease;
+    margin-right: 5px;
+}
+
+.nav-link:hover{
+    background-color: #dcb14a !important;
+    color: black !important;
+}
+
+.py-5 {
+    margin-bottom: 3rem;
+}
