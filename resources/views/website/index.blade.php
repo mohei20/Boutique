@@ -12,6 +12,7 @@
     <section class="py-6">
         <div class="container p-0">
             <div class="row">
+                <!-- SHOP SIDEBAR-->
                 <div class="col-lg-3 order-2 order-lg-1">
                     <div class="py-2 px-4 bg-dark text-white mb-3"><strong
                             class="small text-uppercase fw-bold">Categories</strong></div>
