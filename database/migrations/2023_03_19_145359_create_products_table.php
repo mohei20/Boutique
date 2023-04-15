@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('sales');
             $table->string('origin');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('supplier_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

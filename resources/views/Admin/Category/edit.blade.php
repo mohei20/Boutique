@@ -1,0 +1,42 @@
+@extends('Admin.layout')
+
+@section('content')
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item active">Suppliers</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <div class="card-body ">
+
+        <form method="post" action="{{ route('categories.update', $category->id) }}" class="row g-3"
+            enctype="multipart/form-data">
+            @csrf
+            @method('put')
+            <div class="col-12">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}"
+                    required>
+                <div class="invalid-feedback">Please, enter category name!</div>
+            </div>
+
+            <div class="col-12">
+                <label for="image" class="form-label">Image</label>
+                <div class="input-group has-validation">
+                    <input type="file" name="image" class="form-control" id="image" value="{{old($category->image )}}"
+                        required>
+                    <div class="invalid-feedback">Please chose category image. </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary w-10" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+@endsection

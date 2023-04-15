@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Supplier;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
@@ -15,12 +16,15 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = [
-            'c1' => ['name' => 'Clothes', 'image' => 'cat-img-1.jpg'],
-            'c2' => ['name' => 'Shoes', 'image' => 'cat-img-2.jpg'],
-            'c3' => ['name' => 'Watches', 'image' => 'cat-img-3.jpg'],
-            'c4' => ['name' => 'Electronics', 'image' => 'cat-img-4.jpg'],
-        ];
-        Category::insert($categories);
+        $faker = Factory::create();
+        $suppliersIds = Supplier::pluck('id');
+
+        for ($i = 0; $i < 10; $i++) {
+            Category::create([
+                'name' => $faker->name(),
+                'image' => 'cat-img-' . rand(1, 4) . '.jpg',
+                'supplier_id' => $suppliersIds->random()
+            ]);
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Supplier;
 use Faker\Factory;
 
 
@@ -17,8 +18,9 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $faker = Factory::create();
+        $suppliersIds = Supplier::pluck('id');
         $categoriesIds = Category::pluck('id');
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             Product::create([
                 'name' => $faker->unique()->sentence(1),
                 'price' => $faker->numberBetween(1, 500),
@@ -27,6 +29,7 @@ class ProductSeeder extends Seeder
                 'offers' => $faker->numberBetween(0, 70),
                 'sales' => $faker->numberBetween(1, 500),
                 'origin' => $faker->city,
+                'supplier_id' => $suppliersIds->random(),
                 'category_id' => $categoriesIds->random()
             ]);
         }
