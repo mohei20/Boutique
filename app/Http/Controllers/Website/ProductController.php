@@ -11,8 +11,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::select('name', 'price', 'image')->orderBy('id', 'desc')->paginate(9);
-        $categories = Category::select('id', 'name', 'image')->get();
-        return view("website.shop", ['products' => $products, 'categories' => $categories]);
+        // $products = Product::select('name', 'price', 'image')->latest()->paginate(9);
+        // $categories = Category::select('id', 'name', 'image')->get();
+        // return view("website.shop", [
+        //     'products' => $products,
+        //     'categories' => $categories
+        // ]);
     }
 }

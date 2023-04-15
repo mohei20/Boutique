@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             User::create([
                 'name' => $faker->name(),
                 'email' => $faker->unique->safeEmail(),
-                'password' => Hash::make('123456'),
+                'password' => Hash::make('123456789'),
                 'isAdmin' => $role[rand(0, 1)],
                 'image' => rand(1, 4) . '.jpg',
                 'email_verified_at' => now()

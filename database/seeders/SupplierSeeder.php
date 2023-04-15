@@ -16,9 +16,10 @@ class SupplierSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             Supplier::create([
                 'name' => $faker->unique()->name(),
+                'phone' => $faker->phoneNumber()
             ]);
         }
     }
