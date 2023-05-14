@@ -17,7 +17,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Image</th>
-                <th scope="col" colspan="2">Operations</th>
+                <th scope="col">Supplier</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delet</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,7 @@
                     <td>{{ $c->name }}</td>
                     <td><img src="{{ asset('Categories_Images/' . $c->image) }}" width="100px" height="100px"
                             alt="cat-img"></td>
+                    <td>{{ $c->supplier->name }}</td>
                     <td><a href="{{ route('categories.edit', $c->id) }}" class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ route('categories.destroy', $c->id) }}" method="POST">

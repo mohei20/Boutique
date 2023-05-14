@@ -16,8 +16,6 @@ class SearchController extends Controller
 
         if ($query) {
             $results = Product::where('name', 'LIKE', '%' . $query . '%')
-                // ->orWhere('category_name', 'LIKE', '%' . $query . '%')
-                // ->orWhere('supplier_name', 'LIKE', '%' . $query . '%')
                 ->get();
             return view(
                 'website.Search.results',
@@ -38,8 +36,6 @@ class SearchController extends Controller
 
         $results = Product::with('category', 'supplier')
             ->where('name', 'LIKE', '%' . $query . '%')
-            // ->orWhere('category_name', 'LIKE', '%' . $query . '%')
-            // ->orWhere('supplier_name', 'LIKE', '%' . $query . '%')
             ->get();
         return view(
             'website.Search.results',

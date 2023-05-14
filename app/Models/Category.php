@@ -15,9 +15,13 @@ class Category extends Model
         'supplier_id'
     ];
 
-    public function supplier()
+    public function suppliers()
     {
         return $this->BelongsToMany(Supplier::class);
+    }
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
     }
     public function product()
     {

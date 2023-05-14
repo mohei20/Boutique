@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
         $faker = Factory::create();
         $suppliersIds = Supplier::pluck('id');
         $categoriesIds = Category::pluck('id');
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 200; $i++) {
             Product::create([
                 'name' => $faker->unique()->sentence(1),
                 'price' => $faker->numberBetween(1, 500),
@@ -29,7 +29,6 @@ class ProductSeeder extends Seeder
                 'offers' => $faker->numberBetween(0, 70),
                 'sales' => $faker->numberBetween(1, 500),
                 'origin' => $faker->city,
-                'supplier_id' => $suppliersIds->random(),
                 'category_id' => $categoriesIds->random()
             ]);
         }

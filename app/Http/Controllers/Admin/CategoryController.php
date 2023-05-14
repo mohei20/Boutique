@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Trait\ImageTrait;
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -16,8 +17,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::select('id', 'name', 'image')->get();
-        return view('Admin.Category.index', ['categories' => $categories]);
+        $categories = Category::select('id', 'name', 'image', 'supplier_id')->with('supplier')->get();
+
+        return view(
+            'Admin.Category.index',
+            [
+                'categories' => $categories
+            ]
+        );
     }
 
     /**
@@ -25,7 +32,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin.Category.create');
+        $supplier = Supplier::select('id', 'name')->get();
+        return view('Admin.Category.create', ['supplier' => $supplier]);
     }
 
     /**
@@ -35,16 +43,9 @@ class CategoryController extends Controller
     {
         $inputdata = $request->all();
         $inputdata['image'] = $this->insertImage($request->name, $request->image, 'Categories_Images/');
-        Category::create($inputdata);
+        $category = Category::create($inputdata);
+        $category->suppliers()->syncWithoutDetaching($request->supplier);
         return redirect()->route('categories.index');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -52,7 +53,14 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view("Admin.category.edit", ["category" => $category]);
+        $supplier = Supplier::select('id', 'name')->get();
+        return view(
+            "Admin.category.edit",
+            [
+                "supplier" => $supplier,
+                "category" => $category
+            ]
+        );
     }
 
     /**

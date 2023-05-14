@@ -23,7 +23,9 @@
                 <th scope="col">Offers</th>
                 <th scope="col">Sales</th>
                 <th scope="col">Origin</th>
-                <th scope="col" colspan="2">Operations</th>
+                <th scope="col">Category</th>
+                <th scope="col">Edir</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +43,7 @@
                     <td>{{ $p->offers }}</td>
                     <td>{{ $p->sales }}</td>
                     <td>{{ $p->origin }}</td>
+                    <td>{{ $p->category->name }}</td>
                     <td><a href="{{ route('products.edit', $p->id) }}" class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ route('products.destroy', $p->id) }}" method="POST">
@@ -53,6 +56,4 @@
             @endforeach
         </tbody>
     </table>
-
-
 @endsection
