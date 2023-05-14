@@ -19,7 +19,7 @@ class CategorySeeder extends Seeder
         $faker = Factory::create();
         $suppliersIds = Supplier::pluck('id');
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             Category::create([
                 'name' => $faker->name(),
                 'image' => 'cat-img-' . rand(1, 4) . '.jpg',

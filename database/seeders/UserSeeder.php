@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         //create Dummy Admin
         $role = [1, Null];
         $faker = Factory::create();
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             User::create([
                 'name' => $faker->name(),
                 'email' => $faker->unique->safeEmail(),

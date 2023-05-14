@@ -6,7 +6,7 @@
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active">Suppliers</li>
+                <li class="breadcrumb-item active">Products</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -24,8 +24,8 @@
             <div class="col-12">
                 <label class="form-label">Category</label>
                 <div class="col-12">
-                    <select class="form-select" aria-label="Default select example" name="category_id">
-                        <option selected>Choose Category</option>
+                    <select class="form-select" aria-label="Default" id="category" name="category_id">
+                        <option disabled selected>Choose Category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach

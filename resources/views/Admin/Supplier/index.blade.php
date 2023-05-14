@@ -11,13 +11,15 @@
             </ol>
         </nav>
     </div><!-- End Page Title -->
+
     <table class="table datatable">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
-                <th scope="col" colspan="2">Operations</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delet</th>
             </tr>
         </thead>
         <tbody>
@@ -38,9 +40,8 @@
                         </form>
                     </td>
                 </tr>
-                </tr>
+                {{-- </tr> --}}
             @endforeach
         </tbody>
     </table>
-
 @endsection

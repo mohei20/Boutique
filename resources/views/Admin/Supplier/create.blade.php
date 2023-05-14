@@ -23,7 +23,7 @@
 
             <div class="col-12">
                 <label for="phone" class="form-label">Phone</label>
-                <input type="tel" name="phone" class="form-control" id="phone" required>
+                <input type="text" name="phone" class="form-control" id="phone" required>
                 <div class="invalid-feedback">Please, enter phone number!</div>
             </div>
 

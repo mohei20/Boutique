@@ -28,7 +28,6 @@
                 <label class="form-label">Category</label>
                 <div class="col-12">
                     <select class="form-select" aria-label="Default select example" name="category_id">
-                        <option disabled>Choose Tags</option>
                         <option disabled>Choose Category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}" @if ($product->category_id == $category->id) selected @endif>

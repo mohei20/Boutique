@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::select()->with('category')->get();
         return view(
             'Admin.Product.index',
             [
@@ -36,7 +36,6 @@ class ProductController extends Controller
             'Admin.Product.create',
             [
                 'categories' => $categories
-
             ]
         );
     }
@@ -50,14 +49,6 @@ class ProductController extends Controller
         $inputdata['image'] = $this->insertImage($request->name, $request->image, 'Products_Images/');
         Product::create($inputdata);
         return redirect()->route('products.index');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**

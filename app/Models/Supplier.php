@@ -9,14 +9,15 @@ class Supplier extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'name',
+        'phone'
     ];
 
-    public function categories()
+    public function category()
     {
         return $this->hasMany(Category::class);
     }
-    public function products()
+    public function product()
     {
         return $this->hasMany(Category::class);
     }
