@@ -2,9 +2,6 @@
 
 @include('website.includes.nav')
 
-
-@include('website.includes.modal')
-
 @include('website.includes.hero')
 
 @yield('content')

@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
                 'email' => $faker->unique->safeEmail(),
                 'password' => Hash::make('123456789'),
                 'isAdmin' => $role[rand(0, 1)],
-                'image' => rand(1, 4) . '.jpg',
+                'image' => '1.jpg',
                 'email_verified_at' => now()
             ]);
         }

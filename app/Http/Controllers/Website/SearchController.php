@@ -11,16 +11,23 @@ class SearchController extends Controller
 {
     public function index(Request $request)
     {
-        $query = $request->input('query');
+        $searchQuery = $request->input('query');
         $categories = Category::select('id', 'name')->get();
 
-        if ($query) {
-            $results = Product::where('name', 'LIKE', '%' . $query . '%')
-                ->get();
+        if ($searchQuery) {
+            $products = Product::where(function ($query) use ($searchQuery) {
+                $query->where('name', 'like', '%' . $searchQuery . '%')
+                    ->orWhereHas('category', function ($query) use ($searchQuery) {
+                        $query->where('name', 'like', '%' . $searchQuery . '%');
+                    })
+                    ->orWhereHas('category.supplier', function ($query) use ($searchQuery) {
+                        $query->where('name', 'like', '%' . $searchQuery . '%');
+                    });
+            })->get();
             return view(
                 'website.Search.results',
                 [
-                    'results' => $results,
+                    'results' => $products,
                     'categories' => $categories
                 ]
             );
