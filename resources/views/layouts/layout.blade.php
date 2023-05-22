@@ -5,6 +5,7 @@
 @include('website.includes.hero')
 
 @yield('content')
+@yield('scripts')
 
 
 @include('website.includes.footer')

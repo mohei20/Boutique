@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $products = Product::select('name', 'price', 'image')->latest()->paginate(9);
+        $products = Product::select('id', 'name', 'price', 'image')->latest()->paginate(9);
         $categories = Category::select('id', 'name')->get();
         return view("website.index", [
             'products' => $products,
