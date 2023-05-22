@@ -38,7 +38,7 @@
                                             <div class="product-overlay">
                                                 <ul class="mb-0 list-inline">
                                                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark"
-                                                            href="#">Add to cart</a></li>
+                                                            href="{{ route('add.to.cart', $p->id) }}">Add to cart</a></li>
                                                 </ul>
                                             </div>
                                         </div>

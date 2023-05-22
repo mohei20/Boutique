@@ -22,13 +22,13 @@
                 <ul class="navbar-nav ms-auto">
                     @auth
                         @if (!Auth::user()->isAdmin)
-                            <li class="nav-item"><a class="nav-link" href=""> <i
+                            <li class="nav-item"><a class="nav-link" href="{{ route('cart') }}"> <i
                                         class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small
-                                        class="text-gray fw-normal">(2)</small></a></li>
+                                        class="text-gray fw-normal">({{ count((array) session('cart')) }})</small></a></li>
                         @endif
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="pagesDropdown" href=""
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                            <a class="nav-link dropdown-toggle" id="pagesDropdown" href="" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><img
                                     src="{{ asset('Users_Images/' . Auth::user()->image) }}"
                                     style="width: 35px;
                                         height: 35px;

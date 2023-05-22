@@ -58,10 +58,15 @@
 
     <link rel="shortcut icon" href="{{ asset('assets/website/img/favicon.png') }}">
 
+
     {{-- <link rel="stylesheet" href="{{ asset('assets/admin/css/plugins/jquery.dataTables.min.css') }}"> --}}
 
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+
     <style>
         .badge-counter {
             border-radius: 50%;
